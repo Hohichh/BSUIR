@@ -1,0 +1,144 @@
+\documentclass{report}
+
+\usepackage[english]{babel}
+
+\usepackage{amsmath}
+\usepackage[9pt]{extsizes}
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=1.6cm,right=1.6cm]{geometry}
+\usepackage{setspace}
+\usepackage{multicol}
+\usepackage{enumitem}
+\setcounter{page}{176}
+
+\begin{document}
+
+\begin{multicols}{2}
+to the same sc-tuple, the sc-structure will be numbered
+according to the priority specified below.
+\begin{itemize}[noitemsep, topsep=0.1cm]
+  \item if there are multiple sc-structures connected to sctuple that represents universal quantifier or existential quantifier, the sc-structure that only contains
+variables is numbered preferentially;
+  \item if there are multiple sc-structures connected to the
+sc-tuple that represents the implication relation, the
+sc-structure representing the condition is numbered
+preferentially;
+  \item in the current version, for other situations, the numbering is based on the number of elements contained
+in the sc-structure. The fewer the number of elements contained in the sc-structure, the numbering
+will be given priority
+\end{itemize}
+
+Because the atomic predicate formula or the conjunctive
+formula of the atomic predicate formula is included in the scstructure, once the position of the sc-structure in the semantic
+graph is determined, the position of each atomic predicate
+formula in the semantic graph can be determined indirectly.
+In answer verification, if the standard answer and the user
+answer are exactly equal, it means that the atomic predicate
+formulas with the same semantics between the answers have
+the same position in the semantic graph (That is, the numbering
+sequence of sc-structure is the same). In the ostis-systems,
+the atomic predicate formula is expressed using various scconstructions, so this article will establish the mapping relationship of potential equivalent variable sc-node pairs between
+the answers according to the matching relationship of the
+sc-constructions in the same position between the answers
+[4], [8]. The establishment of mapping relationship of the
+potential equivalent variable sc-node pairs between answers
+mainly includes the following steps:
+\begin{enumerate}[noitemsep, topsep=0.1cm]
+  \item [1)] according to the numbering sequence of the sc-structure
+in the semantic graph, each time a sc-structure pair with
+the same number is found from the standard answer and
+the user answer;
+
+  \item [2)] according to the priority order (from high to low) of
+the various types of sc-constructions used to describe
+the atomic predicate formula, it is determined in turn
+whether the current sc-structure pair contains this type
+of sc-construction at the same time. If the current scstructure pair contains this type of sc-construction at the
+same time, then, according to the matching relationship
+of each sc-element between the current sc-construction
+in the standard answer and the current sc-construction in
+the user answer, the mapping relationship of the potential
+equivalent variable sc-node pairs between the current scconstruction pair is established. The priority order of
+various types of sc-constructions, and the criteria for
+judging whether the same type of sc-constructions match
+are as follows:
+
+\begin{itemize}[noitemsep, topsep=0.1cm]
+  \item  because there may be multiple sc-constructions in
+the same sc-structure, in order to ensure the uniqueness and accuracy of the mapping relationship of the
+potential equivalent variables sc-node pairs between
+sc-constructions, this article proposes to establish
+the mapping relationship between variables sc-nodes
+according to the priority order of sc-constructions.
+There are 14 types of sc-constructions in the current
+version, and the order of priority between them is
+determined by the number of sc-nodes contained in
+the sc-construction. The greater the number of scnodes, the higher the priority. If the number of scnodes is the same, it is determined according to the number of variable sc-nodes, the greater the number
+of variable sc-nodes, the higher the priority;
+  \item the criteria for judging the matching of the same
+type of sc-constructions are: 1. the constant sc-node
+at the corresponding position between them exactly
+matches; 2. there is a mapping relationship between
+the variable sc-nodes of the corresponding position,
+or there is no mapping relationship between the
+corresponding position variable sc-nodes, and there
+is no mapping relationship between these variables
+sc-nodes and other variables sc-nodes. If any pair
+of sc-constructions of the same type in the same
+position between the answers satisfy the above two
+conditions at the same time, the mapping relationship between the corresponding position variables
+sc-nodes between the sc-constructions is established
+(if there is already a mapping relationship between
+the two variable sc-nodes, it will not be created
+repeatedly).
+\end{itemize}
+
+  \item [3)] repeat step 1 — step 2 until all potential equivalent
+variable sc-node pairs between semantic graphs have
+established a mapping relationship.
+\end{enumerate}
+
+Fig. 3 shows an example of establishing the mapping relationship of potential equivalent variable sc-node pairs between
+semantic graphs according to the numbering order of scstructures in SCg-code.
+In Fig. 3, the definition of the inclusion relation is described
+in the form of a semantic graph ($\forall$A$\forall$B(A$\subseteq$ B)$\iff$($\forall$a(a $\in$ A $\longrightarrow$ a $\in$ B)))
+
+When the mapping relationship between the potential equivalent variable sc-node pairs between the semantic graphs is
+established according to the positions of sc-tuples and scstructures in the semantic graphs, the similarity between the
+answers can be calculated using formulas (1), (2), and (3).
+The criteria for judging the matching of substructures are: 1.
+the constant sc-nodes in the corresponding position between
+substructures have the same main identifier in the knowledge
+base or the same number in the semantic graphs (sc-tuple and
+sc-structure); 2. there is a mapping relationship between the
+variable sc-nodes at the corresponding position between the
+substructures.
+
+Next, we will introduce the working algorithm of this scagent in detail:
+
+\textbf{Algorithm 3 — The working algorithm of sc-agent for
+computing semantic similarity of logical knowledge}
+
+\textbf{Input}: The specific subjective question and the corresponding semantic graph of standard answer and the semantic graph
+of user answer. The condition of the sc-agent response is that
+two semantic graphs that use logical knowledge to represent
+the answer appear in the sc-memory, and the similarity between
+them has not been calculated.
+
+\textbf{Output}: The precision, recall and similarity between answers, and the sc-node used to record the matching status of
+substructures.
+\begin{enumerate}[noitemsep, topsep=0cm]
+  \item [1)] checking whether all input parameters used for sc-agent
+work meet the conditions, if so, go to step 2), otherwise,go to step 12);
+  \item [2)] checking whether the current question has multiple
+standard answers, if so, automatically select a standard
+answer that best matches the user answer according to
+the approach introduced earlier;
+  \item [3)] according to the rules of logical knowledge representation, the semantic graphs of standard answers and user
+answers are decomposed into substructures;
+  \item [4)] the sc-tuples and sc-structures in the semantic graph
+of the standard answer and the semantic graph of the
+
+\end{enumerate}
+\end{multicols}
+
+\end{document}

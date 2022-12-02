@@ -1,0 +1,395 @@
+1)
+  verko@LAP MINGW64 ~
+$ mkdir repos
+
+verko@LAP MINGW64 ~
+$ git init repos
+Initialized empty Git repository in C:/Users/verko/repos/.git/
+
+2)
+   verko@LAP MINGW64 ~
+$ cd repos
+
+verko@LAP MINGW64 ~/repos (master)
+$ git status
+On branch master
+
+No commits yet
+
+nothing to commit (create/copy files and use "git add" to track)
+
+4)
+   verko@LAP MINGW64 ~/repos (master)
+$ touch file.txt
+
+verko@LAP MINGW64 ~/repos (master)
+$ git add file.txt
+
+5)
+   verko@LAP MINGW64 ~/repos (master)
+$ git commit -m "commit for file.txt"
+[master (root-commit) c0084d5] commit for file.txt
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 file.txt
+
+6)
+   verko@LAP MINGW64 ~/repos (master)
+$ touch 123.txt
+
+verko@LAP MINGW64 ~/repos (master)
+$ touch pau.txt
+
+verko@LAP MINGW64 ~/repos (master)
+$ git add .
+
+verko@LAP MINGW64 ~/repos (master)
+$ git commit -m "commit for 123.txt and pau.txt"
+[master 26f2dc9] commit for 123.txt and pau.txt
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 123.txt
+ create mode 100644 pau.txt
+
+7)
+   verko@LAP MINGW64 ~/repos (master)
+$ git log
+commit 26f2dc975dd12812de02d6b88ae20e99142e12a2 (HEAD -> master)
+Author: ElizVerk <verkovich2005@gmail.com>
+Date:   Wed Nov 9 17:52:32 2022 +0300
+
+    commit for 123.txt and pau.txt
+
+commit c0084d59a6c48ab731f219ce37b2353fd4ccb376
+Author: ElizVerk <verkovich2005@gmail.com>
+Date:   Wed Nov 9 17:49:30 2022 +0300
+
+    commit for file.txt
+
+8)
+    verko@LAP MINGW64 ~/repos (master)
+$ git config --global user.name
+ElizVerk
+
+9)
+   verko@LAP MINGW64 ~/repos (master)
+$ touch wow.txt
+
+verko@LAP MINGW64 ~/repos (master)
+$ git add wow.txt
+
+verko@LAP MINGW64 ~/repos (master)
+$ git restore --staged wow.txt
+
+10)
+    verko@LAP MINGW64 ~/repos (master)
+$ echo "barabarabara bereberebere" > file.txt
+
+verko@LAP MINGW64 ~/repos (master)
+$ git diff file.txt
+warning: in the working copy of 'file.txt', LF will be replaced by CRLF the next time Git touches it
+diff --git a/file.txt b/file.txt
+index e69de29..56e9a01 100644
+--- a/file.txt
++++ b/file.txt
+@@ -0,0 +1 @@
++barabarabara bereberebere
+
+11)
+    verko@LAP MINGW64 ~/repos (master)
+$ git restore file.txt
+
+12)
+    verko@LAP MINGW64 ~/repos (master)
+$ gitk
+
+13)
+    verko@LAP MINGW64 ~/repos (master)
+$ git add *
+
+14-15)
+    verko@LAP MINGW64 ~/repos (master)
+$ git config --local user.name "Lizer"
+
+16)
+    verko@LAP MINGW64 ~/repos (master)
+$ git branch
+* master
+
+17)
+    verko@LAP MINGW64 ~/repos (master)
+$ git branch newbranch
+
+18)
+   verko@LAP MINGW64 ~/repos (master)
+$ git checkout newbranch
+Switched to branch 'newbranch'
+A       wow.txt
+
+19)
+    verko@LAP MINGW64 ~/repos (newbranch)
+$ git checkout -b anotherbranch
+Switched to a new branch 'anotherbranch'
+
+20)
+    verko@LAP MINGW64 ~/repos (anotherbranch)
+$ git checkout newbranch
+Switched to branch 'newbranch'
+A       wow.txt
+
+verko@LAP MINGW64 ~/repos (newbranch)
+$ git branch -d anotherbranch
+Deleted branch anotherbranch (was 26f2dc9).
+
+21)
+    verko@LAP MINGW64 ~/repos (newbranch)
+$ gitk
+
+22)
+    verko@LAP MINGW64 ~/repos (newbranch)
+$ touch pip.txt
+g
+verko@LAP MINGW64 ~/repos (newbranch)
+$ git add pip.txt
+
+verko@LAP MINGW64 ~/repos (newbranch)
+$ git commit -m "commit for pip"
+[newbranch 2374cff] commit for pip
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 pip.txt
+ create mode 100644 wow.txt
+
+verko@LAP MINGW64 ~/repos (newbranch)
+$ git merge master
+Already up to date.
+
+23)
+    verko@LAP MINGW64 ~/repos (master)
+$ git checkout -b confbranch
+Switched to a new branch 'confbranch'
+
+verko@LAP MINGW64 ~/repos (confbranch)
+$ echo 456 > conflict.txt
+
+verko@LAP MINGW64 ~/repos (confbranch)
+$ git add .
+
+verko@LAP MINGW64 ~/repos (confbranch)
+$ git commit -m "conflict"
+[confbranch 20b4c75] different conflict
+ 1 file changed, 1 insertion(+)
+ create mode 100644 conflict.txt
+
+verko@LAP MINGW64 ~/repos (confbranch)
+$ git checkout master
+Switched to branch 'master'
+
+verko@LAP MINGW64 ~/repos (master)
+$ echo 890 > conflict.txt
+
+verko@LAP MINGW64 ~/repos (master)
+$ git add .
+warning: in the working copy of 'conflict.txt', LF will be replaced by CRLF the next time Git touches it
+
+verko@LAP MINGW64 ~/repos (master)
+$ git commit -m "commit to merge"
+[master e0dd925] commit to merge
+ 1 file changed, 1 insertion(+)
+ create mode 100644 conflict.txt
+
+verko@LAP MINGW64 ~/repos (master)
+$ git merge confbranch
+Auto-merging conflict.txt
+CONFLICT (add/add): Merge conflict in conflict.txt
+Automatic merge failed; fix conflicts and then commit the result.
+
+24)
+    verko@LAP MINGW64 ~/repos (master|MERGING)
+$ git status
+On branch master
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+  (use "git merge --abort" to abort the merge)
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+        both added:      conflict.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+25)
+    verko@LAP MINGW64 ~/repos (master|MERGING)
+$ echo 123456789 > conflict.txt
+
+verko@LAP MINGW64 ~/repos (master|MERGING)
+$ git add .
+warning: in the working copy of 'conflict.txt', LF will be replaced by CRLF the next time Git touches it
+
+verko@LAP MINGW64 ~/repos (master|MERGING)
+$ git commit -m "fixing"
+[master 0ad296c] fixing
+
+26)
+    verko@LAP MINGW64 ~/repos (master)
+$ git log
+commit 0ad296c84e4a6e430f83678f54daeafd0fa8542c (HEAD -> master)
+Merge: e0dd925 20b4c75
+Author: ElizVerk <verkovich2005@gmail.com>
+Date:   Wed Nov 9 19:41:14 2022 +0300
+
+    fixing
+
+commit e0dd925f54e8e7825730bc87316553325f206d42
+Author: ElizVerk <verkovich2005@gmail.com>
+Date:   Wed Nov 9 19:35:50 2022 +0300
+
+    commit to merge
+
+commit 20b4c75abd6bd39a82bd5ef0272c8e43fc5a67df (confbranch)
+Author: ElizVerk <verkovich2005@gmail.com>
+Date:   Wed Nov 9 19:32:26 2022 +0300
+
+    different conflict
+
+commit 44c97885706f0ea7df079d58ae952131aaf6102a
+Author: ElizVerk <verkovich2005@gmail.com>
+Date:   Wed Nov 9 19:30:24 2022 +0300
+
+    conflict
+q
+
+verko@LAP MINGW64 ~/repos (master)
+$ git checkout  44c97885706f0ea7df079d58ae952131aaf6102a
+Note: switching to '44c97885706f0ea7df079d58ae952131aaf6102a'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at 44c9788 conflict
+
+27)
+verko@LAP MINGW64 ~/repos (master)
+$ touch txt.txt
+
+verko@LAP MINGW64 ~/repos (master)
+$ git add .
+
+verko@LAP MINGW64 ~/repos (master)
+$ git commit -m "add txt.txt"
+[master (root-commit) ada52a6] add txt.txt
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 txt.txt
+
+verko@LAP MINGW64 ~/repos (master)
+$ git checkout -b rebasebranch
+Switched to a new branch 'rebasebranch'
+
+verko@LAP MINGW64 ~/repos (rebasebranch)
+$ touch txt1.txt
+
+verko@LAP MINGW64 ~/repos (rebasebranch)
+$ git add .
+
+verko@LAP MINGW64 ~/repos (rebasebranch)
+$ git commit -m "add txt1.txt"
+[rebasebranch 8a9625d] add txt1.txt
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 txt1.txt
+
+verko@LAP MINGW64 ~/repos (rebasebranch)
+$ git switch master
+Switched to branch 'master'
+
+verko@LAP MINGW64 ~/repos (master)
+$ git rebase rebasebranch
+Successfully rebased and updated refs/heads/master.
+
+28)
+verko@LAP MINGW64 ~/repos (master)
+$ echo 1233 > txt.txt
+
+verko@LAP MINGW64 ~/repos (master)
+$ git add .
+warning: in the working copy of 'txt.txt', LF will be replaced by CRLF the next time Git touches it
+
+verko@LAP MINGW64 ~/repos (master)
+$ git commit -m "change txt"
+[master 184d96a] change txt
+ 1 file changed, 1 insertion(+)
+
+verko@LAP MINGW64 ~/repos (master)
+$ git switch newuser
+Switched to branch 'newuser'
+
+verko@LAP MINGW64 ~/repos (newuser)
+$ echo 2355 > txt.txt
+
+verko@LAP MINGW64 ~/repos (newuser)
+$ git add .
+warning: in the working copy of 'txt.txt', LF will be replaced by CRLF the next time Git touches it
+
+verko@LAP MINGW64 ~/repos (newuser)
+$ git commit -m "change txt in newuser"
+[newuser dc14d2f] change txt in newuser
+ 1 file changed, 1 insertion(+)
+
+verko@LAP MINGW64 ~/repos (newuser)
+$ git rebase master
+Auto-merging txt.txt
+CONFLICT (content): Merge conflict in txt.txt
+error: could not apply dc14d2f... change txt in newuser
+hint: Resolve all conflicts manually, mark them as resolved with
+hint: "git add/rm <conflicted_files>", then run "git rebase --continue".
+hint: You can instead skip this commit: run "git rebase --skip".
+hint: To abort and get back to the state before "git rebase", run "git rebase --abort".
+Could not apply dc14d2f... change txt in newuser
+
+verko@LAP MINGW64 ~/repos (newuser|REBASE 1/1)
+$ git diff
+diff --cc txt.txt
+index 939b0cb,12d8bd3..0000000
+--- a/txt.txt
++++ b/txt.txt
+@@@ -1,1 -1,1 +1,5 @@@
+++<<<<<<< HEAD
+ +1233
+++=======
++ 2355
+++>>>>>>> dc14d2f (change txt in newuser)
+
+verko@LAP MINGW64 ~/repos (newuser|REBASE 1/1)
+$ echo 1234566 > txt.txt
+
+verko@LAP MINGW64 ~/repos (newuser|REBASE 1/1)
+$ git add .
+warning: in the working copy of 'txt.txt', LF will be replaced by CRLF the next time Git touches it
+
+verko@LAP MINGW64 ~/repos (newuser|REBASE 1/1)
+$ git commit -m "edit txt"
+[detached HEAD db9b44f] edit txt
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+verko@LAP MINGW64 ~/repos (newuser|REBASE 1/1)
+$ git rebase --continue
+Successfully rebased and updated refs/heads/newuser.
+
+29)
+   verko@LAP MINGW64 ~/repos (newuser|REBASE 1/1)
+$ git rebase --abort
+
+30)
+    verko@LAP MINGW64 ~/repos (newuser|REBASE 1/1)
+$ git rebase --skip
+
+
+
