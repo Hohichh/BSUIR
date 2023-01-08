@@ -10,11 +10,49 @@ void check(int &n) {
         cout << "Error!" << "\n";
     }
 }
+
 void checkarr(int &n) {
     while (!(cin >> n) || (cin.peek() != '\n') || (n <= 0)) {
         cin.clear();
         while (cin.get() != '\n');
         cout << "Error!" << "\n";
+    }
+}
+
+void FillArray(int option, int** arr, int n, int m ) {
+  
+    switch (option) {
+    case 1:              //random
+        srand(time(NULL));
+        for (int i = 0; i < n; i++)
+        {
+            for (int j = 0; j < m; j++)
+            {
+                arr[i][j] = rand() % 40 + (-20);
+            }
+        }
+        break;
+
+    case 2:              //manual
+        for (int i = 0; i < n; i++)
+        {
+            for (int j = 0; j < m; j++)
+            {
+                cout << "Enter array elements a[" << i << "][" << j << "] = ";
+                check(arr[i][j]);
+            }
+        }
+        break;
+
+    default:
+        cout << "Error!\n";
+        while (!(cin >> option) || (cin.peek() != '\n')) {            //checking for numeric input
+            cin.clear();
+            while (cin.get() != '\n');
+            cout << "Error!" << "\n";
+        }
+        FillArray(option, arr, n, m);
+        break;
     }
 }
 int main()
@@ -37,35 +75,8 @@ int main()
     cout << "1 -- randomly\t 2 -- manually\n";
  
     int option;
-    check(option);
-    switch (option) {
-    case 1:              //random
-        srand(time(NULL));
-        for (int i = 0; i < n; i++)
-        {
-            for (int j = 0; j < m; j++)
-            {
-                arr[i][j] = rand()%40 + (-20);
-            }
-        }
-        break;
-
-    case 2:              //manual
-        for (int i = 0; i < n; i++)
-        {
-            for (int j = 0; j < m; j++)
-            {
-                cout << "Enter array elements a[" << i << "][" << j << "] = ";
-                check(arr[i][j]);
-            }
-        }
-        break;
-
-    default:
-        cout << "Error! Invalid input.";
-        return 0;
-        break;
-    }
+    cin>>option;
+    FillArray(option, arr, n, m);
    
     cout << "Ur array:\n";                 //matrix
     for (int i = 0; i < n; i++)
@@ -79,9 +90,9 @@ int main()
     for (int i = 0; i < n; i++) {
 
         bool chk = true;
-        for (int j = 1; j < m-1; j++)
+        for (int j = 1; j < m; j++)
         {
-            if (arr[i][j] < arr[i][j + 1])
+            if (arr[i][j] >= arr[i][j - 1])
             {
                 chk = false;
                 break;
