@@ -1,0 +1,329 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15/"
+     xml:base="http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:untitled-ontology-15="http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#Located_in -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#Located_in">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#belongs_to_the_pool -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#belongs_to_the_pool">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#Lakes"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#Rivers"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#border_on -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#border_on">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#Country"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#Country"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#place_in_center -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#place_in_center">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#Lakes"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#area_of_depth -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#area_of_depth">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#has_depth"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#has_area -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#has_area"/>
+    
+
+
+    <!-- http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#has_depth -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#has_depth"/>
+    
+
+
+    <!-- http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#has_flowing_streams -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#has_flowing_streams"/>
+    
+
+
+    <!-- http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#is_low-flow_lake -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#is_low-flow_lake"/>
+    
+
+
+    <!-- http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#soil_area -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#soil_area"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#Country -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#Country">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#District -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#District">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#Region"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#Hydro_of_Country -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#Hydro_of_Country">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#Islands -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#Islands">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#Lakes"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#Lakes -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#Lakes">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#Hydro_of_Country"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#Region -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#Region">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#Country"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#Rivers -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#Rivers">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#Hydro_of_Country"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#Soil -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#Soil">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#Lakes"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#Naroch_lake -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#Naroch_lake">
+        <rdf:type rdf:resource="http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#Lakes"/>
+        <untitled-ontology-15:has_area>first in Belarus</untitled-ontology-15:has_area>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#Osveiskoye_lake -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#Osveiskoye_lake">
+        <rdf:type rdf:resource="http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#Lakes"/>
+        <untitled-ontology-15:Located_in rdf:resource="http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#Verhnedvinsk_district"/>
+        <untitled-ontology-15:belongs_to_the_pool rdf:resource="http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#West_Dvina_river"/>
+        <untitled-ontology-15:area_of_depth>70% of lake&apos;s area</untitled-ontology-15:area_of_depth>
+        <untitled-ontology-15:has_area>second in Belarus</untitled-ontology-15:has_area>
+        <untitled-ontology-15:has_depth>Up to 2m</untitled-ontology-15:has_depth>
+        <untitled-ontology-15:has_flowing_streams>dry up in summer</untitled-ontology-15:has_flowing_streams>
+        <untitled-ontology-15:is_low-flow_lake rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</untitled-ontology-15:is_low-flow_lake>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#Osveisly_Island -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#Osveisly_Island">
+        <rdf:type rdf:resource="http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#Islands"/>
+        <untitled-ontology-15:place_in_center rdf:resource="http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#Osveiskoye_lake"/>
+        <untitled-ontology-15:has_area>4.85 km^2</untitled-ontology-15:has_area>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#Pskov_region -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#Pskov_region">
+        <rdf:type rdf:resource="http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#Region"/>
+        <untitled-ontology-15:Located_in rdf:resource="http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#Russian_Federation"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#Republic_of_Belarus -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#Republic_of_Belarus">
+        <rdf:type rdf:resource="http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#Country"/>
+        <untitled-ontology-15:border_on rdf:resource="http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#Pskov_region"/>
+        <untitled-ontology-15:border_on rdf:resource="http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#Republic_of_Latvia"/>
+        <untitled-ontology-15:border_on rdf:resource="http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#Russian_Federation"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#Republic_of_Latvia -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#Republic_of_Latvia">
+        <rdf:type rdf:resource="http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#Country"/>
+        <untitled-ontology-15:border_on rdf:resource="http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#Pskov_region"/>
+        <untitled-ontology-15:border_on rdf:resource="http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#Russian_Federation"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#Russian_Federation -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#Russian_Federation">
+        <rdf:type rdf:resource="http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#Country"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#Verhnedvinsk_district -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#Verhnedvinsk_district">
+        <rdf:type rdf:resource="http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#District"/>
+        <untitled-ontology-15:Located_in rdf:resource="http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#Vitebsk_region"/>
+        <untitled-ontology-15:border_on rdf:resource="http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#Pskov_region"/>
+        <untitled-ontology-15:border_on rdf:resource="http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#Republic_of_Latvia"/>
+        <untitled-ontology-15:border_on rdf:resource="http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#Russian_Federation"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#Vitebsk_region -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#Vitebsk_region">
+        <rdf:type rdf:resource="http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#Region"/>
+        <untitled-ontology-15:Located_in rdf:resource="http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#Republic_of_Belarus"/>
+        <untitled-ontology-15:border_on rdf:resource="http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#Pskov_region"/>
+        <untitled-ontology-15:border_on rdf:resource="http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#Republic_of_Latvia"/>
+        <untitled-ontology-15:border_on rdf:resource="http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#Russian_Federation"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#West_Dvina_river -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#West_Dvina_river">
+        <rdf:type rdf:resource="http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#Rivers"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#clay_silt -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#clay_silt">
+        <rdf:type rdf:resource="http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#Soil"/>
+        <untitled-ontology-15:soil_area>about 80% of the lake area</untitled-ontology-15:soil_area>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#fine-dendritic_sapropel -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#fine-dendritic_sapropel">
+        <rdf:type rdf:resource="http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#Soil"/>
+        <untitled-ontology-15:soil_area>about 80% of the lake area</untitled-ontology-15:soil_area>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#silica_sapropel -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#silica_sapropel">
+        <rdf:type rdf:resource="http://www.semanticweb.org/verko/ontologies/2023/1/untitled-ontology-15#Soil"/>
+        <untitled-ontology-15:soil_area>about 80% of the lake area</untitled-ontology-15:soil_area>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.24.2023-01-14T21:28:32Z) https://github.com/owlcs/owlapi -->
+
