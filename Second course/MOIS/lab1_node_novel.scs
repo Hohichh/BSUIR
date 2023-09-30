@@ -7,33 +7,32 @@ concept_novel
     => nrel_main_idtf:
       [роман]
       (* 
-      <- lang_rus;;
+      <- lang_ru;;
       *);
       [novel]
       (* 
       <- lang_en;;
       *);;
 
-concept_novel<=nrel_defenition:...
-    (*
-        <-sc_node_tuple;;
-        ->[Роман - это художественное произведение большого объёма, в котором повествуется о событиях в жизни главных действующих лиц и их судьбах.];;
-    *);;
+concept_novel
+    =>nrel_defenition:
+     [Роман - это художественное произведение большого объёма, 
+     в котором повествуется о событиях в жизни главных 
+     действующих лиц и их судьбах.]
+     (*
+     <- lang_ru;;
+     *);;
+       
+concept_novel->rrel_specimen:["War and Peace"];;
 
-concept_novel->rrel_specimen:...
-    =>nrel_name:
-    ["Война и мир"];;
-
-concept_novel=> nrel_time_of_occurrence: Middle_Ages
+concept_novel => nrel_time_of_occurrence: Middle_Ages
     (* 
     <-historical_period_set;; 
     *);;
 
-historical_period_set
-<-sc_node_class;
-->Middle_Ages;;
+example_structure=[*concet_novel->war_and_piece;;*];;
 
-[{concept_writer=>nrel_author:concept_novel}] => nrel_example_of_using_the_concept: concept_novel;;
+example_structure <= nrel_example_of_using_the_concept: concept_novel;;
 
 
 
