@@ -1,0 +1,38 @@
+SLOC = 22 / 30 = 0.733 ; CLOC = 2 / 30 = 0.067
+
+количество строк исходного текста программы (SLOC) и количество 
+строк комментария в тексте программы (CLOC)
+
+абсолютные показатели не зависят от того 
+как мы запишем код в 1 строчку или разобьем
+
+1|  #include <iostream>
+1| |using namespace std;
+
+
+1|  int main()
+  {
+1|      const int N = 100;
+      int arr[N];
+      int n;
+1|      cout << "input N: \n";
+1|     cin >> n;
+2|      if (cin.fail()  n <= 0  n > 100) {
+1|         cin.clear();
+1|          cin.ignore();
+1|          exit(0);
+      }
+2|      else cout << "ur array size is " << n << endl;  
+
+1|     cout << "ur array: \n";
+1|      for (int i = 0; i < n; i++) { //максимальная нагрузка 
+1|          arr[i] = rand() % 20;
+1|          cout << arr[i] << " ";
+      }
+1|      float s = 0;
+1|      for (int i = 0; i < n; i++) {//максимальная нагрузка 
+1|         s += arr[i] * arr[i];
+      }
+1|      cout << "\nsrednee arifm. = " << s / n;
+1|      return 0;
+  }
