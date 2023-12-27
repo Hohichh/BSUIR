@@ -28,20 +28,21 @@ void Deal::setRentalContracts(const vector<RentalContract>& otherRentalContracts
 }
 
 
-
-void Deal::createSaleContract(Entity* owner, Entity* buyer, RealEstate* realEstate){
+SaleContract* Deal::createSaleContract(Entity* owner, Entity* buyer, RealEstate* realEstate) {
 	SaleContract contract(realEstate, owner, buyer);
 	saleContracts.emplace_back(contract);
 	SaleContract* contractPtr = &saleContracts.back();
 	owner->addSaleContract(contractPtr);
 	buyer->addSaleContract(contractPtr);
+	return contractPtr;
 }
-void Deal::createRentalContract(Entity* owner, Entity* renter, RealEstate* realEstate){
+RentalContract* Deal::createRentalContract(Entity* owner, Entity* renter, RealEstate* realEstate){
 	RentalContract contract(realEstate, owner, renter);
 	rentalContracts.emplace_back(contract);
 	RentalContract* contractPtr = &rentalContracts.back();
 	owner->addRentalContract(contractPtr);
 	renter->addRentalContract(contractPtr);
+	return contractPtr;
 }
 
 void Deal::setConditions(double salePrice, const string& saleConditions, SaleContract& contract) {

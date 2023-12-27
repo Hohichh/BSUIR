@@ -4,11 +4,17 @@
 using namespace std;
 
 bool Schedule::isValidTime(TimeInterval fromTo) {
-	if ((stoi(fromTo.from_.hours_) >= 0 && stoi(fromTo.from_.hours_) <= 23) &&
-		(stoi(fromTo.from_.minutes_) >= 0 && stoi(fromTo.from_.hours_) <= 59) &&
+	return ((stoi(fromTo.from_.hours_) >= 0 && stoi(fromTo.from_.hours_) <= 23) &&
+		(stoi(fromTo.from_.minutes_) >= 0 && stoi(fromTo.from_.minutes_) <= 59) &&
 		(stoi(fromTo.to_.hours_) >= 0 && stoi(fromTo.to_.hours_) <= 23) &&
-		(stoi(fromTo.to_.minutes_) >= 0 && stoi(fromTo.to_.hours_) <= 59)
-		) return true;
+		(stoi(fromTo.to_.minutes_) >= 0 && stoi(fromTo.to_.minutes_) <= 59)
+		);
+}
+
+bool Schedule::isValidTime(Time time) {
+	return ((stoi(time.hours_) >= 0 && stoi(time.hours_) <= 23) &&
+		(stoi(time.minutes_) >= 0 && stoi(time.minutes_) <= 59) 
+		);
 }
 
 Schedule::Schedule() = default;
@@ -25,71 +31,17 @@ void Schedule::setSchedule(vector<TimeInterval>& timeInterval){
 	}
 }
 
-void Schedule::editSchedule(){
+
+
+void Schedule::editSchedule(const string& dayWeek, const Time& startTime, const Time& endTime) {
 	string chooseDay;
 	char cont;
-	do {
-		cout << "\nChoose a day of the week(1 - 7): ";
-		while (true) {
-			try {
-				getline(cin, chooseDay);
-				if (stoi(chooseDay) < 0 || stoi(chooseDay) > 7) {
-					throw invalid_argument("There is no such day of the week. Input a day from 1 to 7");
-				}
-				break;
-			}
-			catch (invalid_argument& arg) {
-				cout << "\n" << arg.what() << "\n";
-			}
-		}
-		string hrs = "00";
-		string mins = "00";
-		TimeInterval interval{ {hrs,mins}, {hrs,mins} };
-
-		cout << "\nInput start time(24h format):\n";
-		while (true) {
-			try{
-				cout << "\nhours: ";
-				getline(cin, hrs);
-				cout << "\nminutes: ";
-				getline(cin, mins);
-				Time time{ hrs,mins };
-				interval.from_ = time;
-				if (!isValidTime(interval)) {
-					throw invalid_argument("Invalid time input. Input time in 24h format(exmpl: 23:59)");
-				}
-				break;
-			}
-			catch (invalid_argument& arg) {
-				cout << "\n" << arg.what() << "\n";
-				}
-		}
-
-		cout << "\nInput end time(24h format):\n";
-		while (true) {
-			try {
-				cout << "\nhours: ";
-				getline(cin, hrs);
-				cout << "\nminutes: ";
-				getline(cin, mins);
-				Time time{ hrs,mins };
-				interval.to_ = time;
-				if (!isValidTime(interval)) {
-					throw invalid_argument("Invalid time input. Input time in 24h format(exmpl: 23:59)");
-				}
-				break;
-			}
-			catch (invalid_argument& arg) {
-				cout << "\n" << arg.what() << "\n";
-			}
-
-		}
+		chooseDay = inputDayOfWeek(dayWeek);
+		TimeInterval interval;
+		interval.from_ = inputTime(startTime);
+		interval.to_ = inputTime(endTime);
 
 		schedule[stoi(chooseDay) - 1].second = interval;
-
-		cout << "\nDo you want to proceed?(y/n)\n";
-		cin >> cont;
-	} while (cont == 'y' || cont == 'Y');
 }
 
 void Schedule::showSchedule() const{
@@ -127,4 +79,34 @@ bool Schedule::operator==(const Schedule& other) const{
 	}
 
 	return true;
+}
+
+
+string Schedule::inputDayOfWeek(const string& dayWeek) {
+	while (true) {
+		try {
+			if (stoi(dayWeek) < 0 || stoi(dayWeek) > 7) {
+				throw invalid_argument("There is no such day of the week. Input a day from 1 to 7");
+			}
+			break;
+		}
+		catch (invalid_argument& arg) {
+			cout << "\n" << arg.what() << "\n";
+		}
+	}
+	return dayWeek;
+}
+
+Time Schedule::inputTime(const Time& time) {
+	while (true) {
+		try {
+			if (!isValidTime(time)) {
+				throw invalid_argument("Invalid time input. Input time in 24h format(exmpl: 23:59)");
+			}
+			return time;
+		}
+		catch (invalid_argument& arg) {
+			cout << "\n" << arg.what() << "\n";
+		}
+	}
 }

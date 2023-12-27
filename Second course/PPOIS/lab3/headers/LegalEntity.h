@@ -7,7 +7,7 @@
 	};
 
 	class LegalEntity : public Entity {
-	public:
+	private:
 		static size_t idCounter_;
 		string name_;
 		LegalEntityContactInfo contactInfo_;

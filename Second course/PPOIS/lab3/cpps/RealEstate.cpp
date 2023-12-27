@@ -1,18 +1,15 @@
 #include "RealEstate.h"
 #include "Entity.h"
 
-RealEstate::RealEstate(const string& name, 
-	const Accessibility& access, 
-	const Entity* owner, 
-	const Entity* renter, 
-	const string& address, 
-	bool isStateProperty):
-	name_(name),
-	access_(access), 
-	owner_(owner),
-	renter_(renter),
-	address_(address),
-	isStateProperty_(isStateProperty){}
+
+
+RealEstate::RealEstate(const BaseConditions& baseConditions):
+	name_(baseConditions.name),
+	access_(baseConditions.access),
+	owner_(baseConditions.owner),
+	renter_(baseConditions.renter),
+	address_(baseConditions.address),
+	isStateProperty_(baseConditions.isStateProperty){}
 
 RealEstate::RealEstate():name_("---"),
 	owner_(nullptr),

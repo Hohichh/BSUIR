@@ -8,7 +8,7 @@
 using namespace std;
 
 class Deal {
-public:
+private:
 	static size_t counter_;
 	size_t dealNumber_;
 	vector <SaleContract> saleContracts;
@@ -27,8 +27,8 @@ public:
 	void setRentalContracts(const vector<RentalContract>& rentalContracts);
 
 
-	void createSaleContract(Entity* owner, Entity* buyer, RealEstate* realEstate);
-	void createRentalContract(Entity* owner, Entity* renter, RealEstate* realEstate);
+	SaleContract* createSaleContract(Entity* owner, Entity* buyer, RealEstate* realEstate);
+	RentalContract* createRentalContract(Entity* owner, Entity* renter, RealEstate* realEstate);
 
 	void setConditions(double salePrice, const string& saleConditions, SaleContract& contract);
 	void setConditions(double rent, const string& rentPeriod, 

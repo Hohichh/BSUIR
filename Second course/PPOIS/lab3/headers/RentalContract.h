@@ -7,7 +7,7 @@ class Entity;
 class RealEstate;
 
 class RentalContract {
-public:
+private:
     static size_t counter_;
     size_t contractNumber_;
     RealEstate* realEsateObject_;

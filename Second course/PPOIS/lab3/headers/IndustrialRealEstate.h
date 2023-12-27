@@ -1,8 +1,20 @@
 ﻿#pragma once
 #include "RealEstate.h"
 
+struct IndustrialConditions {
+	double buildSquare;
+	bool hasWarehouse;
+	bool isHazardous;
+	float sanEpidemRate;
+	bool  isIndustrialPark;
+	string powerSupply;
+	string waterSupply;
+	string accessToTransportation;
+	string zoningRestrictions;
+};
+
 class IndustrialRealEstate : public RealEstate{
-public:
+private:
 	double buildSquare_;
 	bool hasWarehouse_;
 	bool isHazardous_;
@@ -15,21 +27,8 @@ public:
 
 public: 
 	IndustrialRealEstate();
-	IndustrialRealEstate(const string& name,
-		const Accessibility& access,
-		const Entity* owner,
-		const Entity* renter,
-		const string& address,
-		bool isStateProperty,
-		double buildSquare,
-	bool hasWarehouse,
-	bool isHazardous,
-	float sanEpidemRate,
-	bool  isIndustrialPark,
-	const string& powerSupply,
-	const string& waterSupply,
-	const string& accessToTransportation,
-	const string& zoningRestrictions);
+	IndustrialRealEstate(const BaseConditions& baseConditions,
+		const IndustrialConditions& industrialConditions);
 	
 	double getBuildSquare() const;
 	void setBuildSquare(double buildSquare);

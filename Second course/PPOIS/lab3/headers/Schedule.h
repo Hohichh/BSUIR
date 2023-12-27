@@ -16,7 +16,7 @@ struct TimeInterval {
 };
 
 class Schedule {
-public:
+private:
 	
 	const size_t maxDay_ = 7;
 	vector<pair<const string, TimeInterval>>schedule = {
@@ -30,13 +30,16 @@ public:
 	};
 
 	bool isValidTime(TimeInterval fromTo);
+	bool isValidTime(Time time);
+	string inputDayOfWeek(const string& dayWeek);
+	Time inputTime(const Time& time);
 
 public:
 	Schedule();
 	vector<pair<const string, TimeInterval>> getSchedule() const;
 	void setSchedule(vector<TimeInterval>& schedule);
 
-	void editSchedule();
+	void editSchedule(const string& dayWeek, const Time& startTime, const Time& endTime);
 	void showSchedule() const;
 
 	void operator=(const Schedule& other);

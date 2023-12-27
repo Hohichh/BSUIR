@@ -8,7 +8,7 @@ using namespace std;
 
 
 class Accessibility {
-public:
+private:
 	bool isLimited_;
 	string limitationType_;
 	string accessConditions_;
@@ -32,7 +32,7 @@ public:
 	string getAccessRestrictions() const;
 	void setAccessRestrictions(const string& accessRestrictions);
 	
-	Schedule getSchedule();
+	Schedule getSchedule() ;
 	void setSchedule(const Schedule& schedule);
 
 	void showInfo() const;

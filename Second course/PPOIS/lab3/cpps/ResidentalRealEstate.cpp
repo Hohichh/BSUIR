@@ -2,31 +2,16 @@
 
 
 
-ResidentalRealEstate::ResidentalRealEstate(const string& name,
-	const Accessibility& access,
-	const Entity* owner,
-	const Entity* renter,
-	const string& address,
-	bool isStateProperty,
-	double buildSquare,
-	double sorroundAreaSquare,
-	const string& builtDate, 
-	const string& lastOverHaulDate, 
-	const string& condition, 
-	bool hasParkingLot, 
-	bool hasYard): RealEstate(name,
-		 access,
-		 owner,
-		 renter,
-		 address,
-		 isStateProperty),
-	buildSquare_(buildSquare), 
-	sorroundAreaSquare_(sorroundAreaSquare),
-	builtDate_(builtDate), 
-	lastOverHaulDate_(lastOverHaulDate), 
-	condition_(condition),
-	hasParkingLot_(hasParkingLot), 
-	hasYard_(hasYard) {}
+ResidentalRealEstate::ResidentalRealEstate(const BaseConditions& baseConditions,
+	const ResidentalConditions& residentalConditions): 
+	RealEstate(baseConditions),
+	buildSquare_(residentalConditions.buildSquare),
+	sorroundAreaSquare_(residentalConditions.sorroundAreaSquare),
+	builtDate_(residentalConditions.builtDate),
+	lastOverHaulDate_(residentalConditions.lastOverHaulDate),
+	condition_(residentalConditions.condition),
+	hasParkingLot_(residentalConditions.hasParkingLot),
+	hasYard_(residentalConditions.hasYard) {}
 
 ResidentalRealEstate::ResidentalRealEstate(): RealEstate(),
 	buildSquare_(0), 

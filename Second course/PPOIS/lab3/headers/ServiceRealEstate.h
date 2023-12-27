@@ -2,8 +2,17 @@
 #include "RealEstate.h"
 
 
+struct ServiceConditions {
+	string serviceCategory;
+	string bulidingCategory;
+	bool hasParkingLot;
+	float sanEpidemRate;
+	double buildSquare;
+	bool accesibleInviroment;
+};
+
 class ServiceRealEstate : public RealEstate {
-public:
+private:
 	string serviceCategory_;
 	string bulidingCategory_;
 	bool hasParkingLot_;
@@ -12,18 +21,8 @@ public:
 	bool accesibleInviroment_;
 
 public:
-	ServiceRealEstate(const string& name,
-		const Accessibility& access,
-		const Entity* owner,
-		const Entity* renter,
-		const string& address,
-		bool isStateProperty, 
-		const string& serviceCategory,
-		const string& bulidingCategory, 
-		bool hasParkingLot, 
-		float sanEpidemRate, 
-		double buildSquare, 
-		bool accesibleInviroment);
+	ServiceRealEstate(const BaseConditions& baseConditions,
+		const ServiceConditions& serviceConditions);
 	ServiceRealEstate();
 
 	string getServiceCategory() const;

@@ -2,8 +2,18 @@
 #include "RealEstate.h"
 
 
+struct LandConditions {
+	double landSquare;
+	string powerSupply;
+	string waterSupply;
+	string accessToTransportation;
+	bool isAgricultureSuitable;
+	bool isBuildSuitable;
+	string soilType;
+};
+
 class LandRealEstate : public RealEstate {
-public:
+private:
 	double landSquare_;
 	string powerSupply_;
 	string waterSupply_;
@@ -15,19 +25,8 @@ public:
 public:
 
 	LandRealEstate();
-	LandRealEstate(const string& name,
-		const Accessibility& access,
-		const Entity* owner,
-		const Entity* renter,
-		const string& address,
-		bool isStateProperty,
-		double landSquare,
-	const string& powerSupply,
-	const string& waterSupply,
-	const string& accessToTransportation,
-	bool isAgricultureSuitable,
-	bool isBuildSuitable,
-	const string& soilType);
+	LandRealEstate(const BaseConditions& baseConditions,
+		const LandConditions& landConditions);
 
 	double getLandSquare() const;
 	void setLandSquare(double landSquare);

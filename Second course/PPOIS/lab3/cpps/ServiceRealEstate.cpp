@@ -1,30 +1,17 @@
 ﻿#include "ServiceRealEstate.h"
 
 
-ServiceRealEstate::ServiceRealEstate(const string& name,
-	const Accessibility& access,
-	const Entity* owner,
-	const Entity* renter,
-	const string& address,
-	bool isStateProperty,
-	const string& serviceCategory,
-	const string& bulidingCategory, 
-	bool hasParkingLot, 
-	float sanEpidemRate, 
-	double buildSquare, 
-	bool accesibleInviroment):
-	RealEstate(name,
-		access,
-		owner,
-		renter,
-		address,
-		isStateProperty ),
-	serviceCategory_(serviceCategory), 
-	bulidingCategory_(bulidingCategory),
-	hasParkingLot_(hasParkingLot), 
-	sanEpidemRate_(sanEpidemRate), 
-	buildSquare_(buildSquare),
-	accesibleInviroment_(accesibleInviroment) {}
+
+
+ServiceRealEstate::ServiceRealEstate(const BaseConditions& baseConditions,
+	const ServiceConditions& serviceConditions):
+	RealEstate(baseConditions),
+	serviceCategory_(serviceConditions.serviceCategory),
+	bulidingCategory_(serviceConditions.bulidingCategory),
+	hasParkingLot_(serviceConditions.hasParkingLot),
+	sanEpidemRate_(serviceConditions.sanEpidemRate),
+	buildSquare_(serviceConditions.buildSquare),
+	accesibleInviroment_(serviceConditions.accesibleInviroment) {}
 
 ServiceRealEstate::ServiceRealEstate(): RealEstate(),
 	serviceCategory_("---"), 
@@ -76,7 +63,7 @@ void ServiceRealEstate::setAccesibleInviroment(bool accesibleInviroment) {
 	accesibleInviroment_ = accesibleInviroment;
 }
 
-// Метод showInfo
+
 void  ServiceRealEstate::showInfo() const {
 	RealEstate::showInfo(); 
 	cout << "Service category: " << serviceCategory_ << endl;

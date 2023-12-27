@@ -1,8 +1,19 @@
 #pragma once
 #include "RealEstate.h"
 
+
+struct ResidentalConditions {
+	double buildSquare;
+	double sorroundAreaSquare;
+	string builtDate;
+	string lastOverHaulDate;
+	string condition;
+	bool hasParkingLot;
+	bool hasYard;
+};
+
 class ResidentalRealEstate : public RealEstate{
-public:
+private:
 	double buildSquare_;
 	double sorroundAreaSquare_;
 	string builtDate_;
@@ -12,19 +23,8 @@ public:
 	bool hasYard_;
 
 public:
-	ResidentalRealEstate(const string& name,
-		const Accessibility& access,
-		const Entity* owner,
-		const Entity* renter,
-		const string& address,
-		bool isStateProperty,
-		double buildSquare,
-		double sorroundAreaSquare, 
-		const string& builtDate,
-		const string& lastOverHaulDate, 
-		const string& condition, 
-		bool hasParkingLot, 
-		bool hasYard);
+	ResidentalRealEstate(const BaseConditions& baseConditions,
+		const ResidentalConditions& residentalConditions);
 	ResidentalRealEstate();
 
 	double getBuildSquare() const;

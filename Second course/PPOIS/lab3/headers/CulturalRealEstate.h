@@ -1,8 +1,17 @@
 ﻿#pragma once
 #include "RealEstate.h"
 
+struct CulturalConditions {
+	double buildSquare;
+	double sorroundAreaSquare;
+	bool isMuseam;
+	string condition;
+	string historicalSignificance;
+	string culturalHeritageProtection;
+};
+
 class CulturalRealEstate : public RealEstate {
-public:
+private:
 	double buildSquare_;
 	double sorroundAreaSquare_;
 	bool isMuseam_;
@@ -13,18 +22,8 @@ public:
 public:
 
 	CulturalRealEstate();
-	CulturalRealEstate(const string& name,
-		const Accessibility& access,
-		const Entity* owner,
-		const Entity* renter,
-		const string& address,
-		bool isStateProperty,
-		double buildSquare,
-	double sorroundAreaSquare,
-	bool isMuseam,
-	const string& condition,
-	const string& historicalSignificance,
-	const string& culturalHeritageProtection);
+	CulturalRealEstate(const BaseConditions& baseConditions,
+		const CulturalConditions& culturalConditions);
 
 	double getBuildSquare() const;
 	void setBuildSquare(double buildSquare);

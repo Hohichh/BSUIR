@@ -5,9 +5,21 @@
 
 using namespace std;
 
+
+
 class Entity;
+
+struct BaseConditions {
+	string name;
+	Accessibility access;
+	const Entity* owner;
+	const Entity* renter;
+	string address;
+	bool isStateProperty;
+};
+
 class RealEstate abstract{
-public:
+private:
 	string name_;
 	Accessibility access_;
 	const Entity* owner_;
@@ -16,12 +28,7 @@ public:
 	bool isStateProperty_;
 
 public:
-	RealEstate(const string& name, 
-		const Accessibility& access, 
-		const Entity* owner,
-		const Entity* renter,
-		const string& address, 
-		bool isStateProperty);
+	RealEstate(const BaseConditions& baseConditions);
 	RealEstate();
 
 	string getName() const;

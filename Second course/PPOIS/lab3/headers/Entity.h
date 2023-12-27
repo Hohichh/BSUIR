@@ -15,7 +15,7 @@ struct ContactInfo {
 };
 
 class Entity abstract{
-public:
+private:
 
 	string type_;
 	vector <RealEstate*> ownership;

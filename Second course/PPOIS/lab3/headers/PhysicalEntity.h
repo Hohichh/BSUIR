@@ -14,7 +14,7 @@
 	};
 
 	class PhysicalEntity : public Entity {
-	public:
+	private:
 		static size_t idCounter_;
 		FullName fullName_;
 		size_t id_;
