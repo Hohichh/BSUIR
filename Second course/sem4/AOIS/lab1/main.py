@@ -102,7 +102,15 @@ while True:
             except ZeroDivisionError as e:
                 print(e)
         case '6':
-            break
+            first_num = int(input("\nEnter the first num: "))
+            second_num = int(input("\nEnter the second num: "))
+            bin_first = decim_to_binary_float(first_num)
+            bin_second = decim_to_binary_float(second_num)
+            print(f'{bin_fisrt} / {bin_second} = ')
+            print(f"Check: {binary_to_decim_float(bin_first)} / {binary_to_decim_float(bin_second)}")
+            summary = add_float_binary(bin_first, bin_second)
+            print(summary)
+            print(f"Check: {binary_to_decim_float(summary)}")
         case '7':
             break
         case _:

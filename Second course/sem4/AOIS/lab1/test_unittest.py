@@ -43,18 +43,31 @@ class Test_ConverterInteger(unittest.TestCase):
         self.assertEqual(int_bin_to_dec_two(bin_neg), -14)
         self.assertEqual(int_bin_to_dec_two(bin_zero), 0)   
 
-class Test_SummaryInteger(unittest.TestCase):
+class Test_SummaryIntegerStraight(unittest.TestCase):
     def test_pos_pos(self):
-        pass
+        first_num = int_straight_code(23)
+        second_num = int_straight_code(41)
+        result = int_bin_to_dec_str(straight_code_sum(first_num, second_num))
+        self.assertEqual(result, 64)
+        
 
     def test_pos_neg(self):
-        pass
+        first_num = int_straight_code(106)
+        second_num = int_straight_code(-7)
+        result = int_bin_to_dec_str(straight_code_sum(first_num, second_num))
+        self.assertEqual(result, 99)
 
     def test_neg_pos(self):
-        pass
+        first_num = int_straight_code(-87)
+        second_num = int_straight_code(9)
+        result = int_bin_to_dec_str(straight_code_sum(first_num, second_num))
+        self.assertEqual(result, -78)
 
     def test_neg_neg(self):
-        pass
+        first_num = int_straight_code(-10)
+        second_num = int_straight_code(-7)
+        result = int_bin_to_dec_str(straight_code_sum(first_num, second_num))
+        self.assertEqual(result, -17)
 
 class Test_DifferenceInteger(unittest.TestCase):
     def test_pos_pos(self):

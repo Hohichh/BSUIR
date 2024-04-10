@@ -14,3 +14,4 @@ from one_complement_dif import one_complement_dif
 from straight_code_devision import straight_code_devision
 from decim_to_binary_float import decim_to_binary_float
 from binary_to_decim_float import binary_to_decim_float
+from add_float_binary import add_float_binary
